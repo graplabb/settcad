@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Служебные папки скрывать не нужно — сайт одностраничный
+# Но на всякий случай исключаем системные файлы
+Disallow: /*.json$
+Disallow: /*.log$
+
+# Главная карта сайта
+Sitemap: https://setcad.ru/sitemap.xml
+Host: https://setcad.ru
