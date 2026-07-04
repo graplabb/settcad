@@ -1,4 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
+    function trackGoal(goalName) {
+        if (window.SETCAD_METRIKA_ID && typeof window.ym === 'function') {
+            window.ym(window.SETCAD_METRIKA_ID, 'reachGoal', goalName);
+        }
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', goalName);
+        }
+    }
+
+    document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+        link.addEventListener('click', () => trackGoal('phone_click'));
+    });
+
     // 1. Управление модальным окном
     const modal = document.getElementById('modal');
     const openButtons = document.querySelectorAll('[data-modal-open]');
@@ -9,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             modal.style.display = 'block';
             modal.setAttribute('aria-hidden', 'false');
+            trackGoal('modal_open');
             document.body.style.overflow = 'hidden'; 
         });
     });
@@ -52,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(async (response) => {
                 if (response.status == 200) {
                     successMsg.hidden = false;
+                    trackGoal(form.id === 'modalForm' ? 'modal_form_success' : 'contact_form_success');
                     form.reset(); 
                     
                     submitBtn.textContent = 'Отправить';
