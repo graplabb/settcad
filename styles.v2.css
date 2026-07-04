@@ -1,4 +1,4 @@
-﻿/* =========================================================
+/* =========================================================
    SetCad — Landing Page Styles
    Mobile First · Бренд: чёрный / светло-серый / зелёный #00A63F
    ========================================================= */
@@ -359,6 +359,80 @@ ul, ol { list-style: none; }
     background: rgba(0,166,63,0.15); color: var(--green);
     font-size: 0.875rem; font-weight: 700; font-family: 'Montserrat', monospace;
 }
+.trust__link {
+    display: inline-flex; align-items: center; margin-top: 10px;
+    color: #fff; font-size: 0.875rem; font-weight: 700;
+    border-bottom: 1px solid rgba(255,255,255,0.35);
+}
+.trust__link:hover { color: var(--green); border-color: var(--green); }
+.trust-proof {
+    position: relative; z-index: 1;
+    display: grid; grid-template-columns: 1fr; gap: 24px;
+    margin-top: 28px; padding: 20px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: var(--radius-lg);
+}
+.trust-proof__image {
+    display: block; overflow: hidden; border-radius: var(--radius);
+    background: #fff; box-shadow: var(--shadow-lg);
+}
+.trust-proof__image img {
+    width: 100%; height: auto; aspect-ratio: 1.35 / 1;
+    object-fit: cover; object-position: center;
+}
+.trust-proof__content { align-self: center; }
+.trust-proof__content .section__eyebrow { margin-bottom: 10px; }
+.trust-proof__content h3 {
+    color: #fff; font-size: clamp(1.45rem, 3vw, 2rem);
+    line-height: 1.2; margin-bottom: 14px; font-weight: 800;
+}
+.trust-proof__content p { color: rgba(255,255,255,0.72); margin-bottom: 18px; }
+.trust-proof__content ul { display: flex; flex-direction: column; gap: 10px; }
+.trust-proof__content li {
+    position: relative; padding-left: 22px;
+    color: rgba(255,255,255,0.76); font-size: 0.95rem;
+}
+.trust-proof__content li::before {
+    content: ''; position: absolute; left: 0; top: 0.65em;
+    width: 8px; height: 8px; border-radius: 50%; background: var(--green);
+}
+
+/* =========================================================
+   ПРИМЕРЫ РАБОТ
+   ========================================================= */
+.works { background: var(--bg-soft); }
+.works__grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+.work-card {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm);
+    transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease);
+}
+.work-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: var(--green); }
+.work-card__image {
+    position: relative; aspect-ratio: 1.4 / 1; overflow: hidden;
+    background: linear-gradient(135deg, #fff 0%, var(--bg-soft) 100%);
+}
+.work-card__image img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .45s var(--ease);
+}
+.work-card__image--clear img { object-fit: contain; padding: 18px; }
+.work-card:hover .work-card__image img { transform: scale(1.035); }
+.work-card__badge {
+    position: absolute; left: 16px; top: 16px;
+    display: inline-flex; align-items: center; padding: 7px 11px; border-radius: 999px;
+    background: rgba(14,18,23,0.78); color: #fff;
+    font-size: 0.75rem; font-weight: 800; letter-spacing: 0.02em; text-transform: uppercase;
+}
+.work-card__body { padding: 22px; }
+.work-card__body h3 { font-size: 1.1rem; font-weight: 800; color: var(--ink); margin-bottom: 8px; }
+.work-card__body p { font-size: 0.925rem; color: var(--body); }
+.works__note {
+    margin-top: 20px; padding: 14px 16px; border-radius: var(--radius-sm);
+    background: rgba(0,166,63,0.08); color: var(--green-dark);
+    font-size: 0.925rem; font-weight: 600;
+}
 
 /* =========================================================
    КАК МЫ РАБОТАЕМ
@@ -563,6 +637,8 @@ ul, ol { list-style: none; }
     .section { padding: 96px 0; }
     .services__grid { grid-template-columns: repeat(2, 1fr); }
     .trust__grid { grid-template-columns: repeat(2, 1fr); }
+    .trust-proof { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); padding: 28px; }
+    .works__grid { grid-template-columns: repeat(3, 1fr); }
     .steps { grid-template-columns: repeat(2, 1fr); }
     .contacts__grid { grid-template-columns: 1fr 1fr; align-items: start; }
     .footer__inner { grid-template-columns: 1.5fr 1fr 1fr; }
